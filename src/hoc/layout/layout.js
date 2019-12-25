@@ -4,8 +4,9 @@ import './layout.css';
 
 import MenuToggle from '../../components/navigation/menu-toggle';
 import MenuList from "../../components/navigation/menu-list/menu-list";
+import {connect} from "react-redux";
 
-export default class Layout extends Component {
+class Layout extends Component {
 
   state = {
     menu: false,
@@ -30,6 +31,7 @@ export default class Layout extends Component {
         <MenuList
           isOpen={this.state.menu}
           onClose={this.closeMenuHandler}
+          isLogged={this.props.isLogged}
         />
 
         <MenuToggle
@@ -44,3 +46,11 @@ export default class Layout extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    isLogged: !!state.auth.token
+  }
+}
+
+export default connect(mapStateToProps)(Layout)

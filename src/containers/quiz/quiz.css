@@ -8,9 +8,14 @@
 }
 
 .quiz h1 {
-   color: #fff
+  color: #fff;
 }
 
 .quiz-wrapper {
   width: 600px;
+}
+
+.quiz-wrapper.lds-circle {
+  flex-grow: 1;
+  justify-content: center;
 }

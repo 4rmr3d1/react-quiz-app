@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './finished-quiz.module.css';
 
 import Button from '../UI/button';
 
 const FinishedQuiz = ( {quiz, results, onRetry} ) => {
-  const rigthAnswers =
+  const rightAnswers =
     Object
       .keys(results)
       .reduce((total, key) => {
@@ -39,11 +40,13 @@ const FinishedQuiz = ( {quiz, results, onRetry} ) => {
         }
       </ul>
 
-      <p>Правильно {rigthAnswers} / {quiz.length}</p>
+      <p>Правильно {rightAnswers} / {quiz.length}</p>
 
       <div>
         <Button onClick={onRetry} type="primary"> Retry </Button>
-        <Button type="right"> Home </Button>
+        <Link to="/">
+          <Button type="right"> Home </Button>
+        </Link>
       </div>
 
     </div>

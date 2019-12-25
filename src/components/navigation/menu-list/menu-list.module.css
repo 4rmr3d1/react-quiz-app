@@ -37,6 +37,6 @@
   transition: opacity .3s;
 }
 
-.MenuList ul li a:hover .action {
+.MenuList ul li a:hover .active {
   opacity: .7;
 }

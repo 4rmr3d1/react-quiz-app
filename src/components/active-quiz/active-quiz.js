@@ -14,7 +14,7 @@ const ActiveQuiz = (props) => {
     <div className="active-quiz">
       <p className="question">
         <span>
-          <strong>1.</strong>&nbsp;
+          <strong>{activeQuestion}</strong>&nbsp;
           {question}
         </span>
 
