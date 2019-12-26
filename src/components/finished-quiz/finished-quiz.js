@@ -10,7 +10,7 @@ const FinishedQuiz = ( {quiz, results, onRetry} ) => {
     Object
       .keys(results)
       .reduce((total, key) => {
-        if (results[key] === 'right') {
+        if (results[key] === 'success') {
           total++
         }
         return total;
