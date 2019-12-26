@@ -1,15 +1,16 @@
 import React from 'react';
-import styles from './answer-item.module.css';
+import './answer-item.css';
 
-import './answer-item.module.css';
+import './answer-item.css';
 
 const AnswerItem = ( {state, answer, onAnswer} ) => {
 
-  const liClass = [styles.answerItem];
-  
-  if(state) {
-    liClass.push(styles[state]);
-  }
+  const liClass = [
+    'answer-item',
+    'list-group-item',
+    'list-group-item-action',
+    state ? `bg-${state}` : null
+  ];
 
   return (
     <li 

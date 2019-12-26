@@ -1,19 +1,18 @@
 import React from 'react';
-import styles from './button.module.css';
+import './button.css';
 
 const Button = (
   {type, onClick, disabled, children}
 ) => {
 
   const buttonClass = [
-    styles.Button,
-    styles[type]
+    disabled ? `btn-outline-${type}` : `btn-${type}`
   ]
 
   return (
     <button
       onClick={onClick}
-      className={buttonClass.join(' ')}
+      className={`btn ${buttonClass.join(' ')}`}
       disabled={disabled}
     >
       {children}

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './finished-quiz.module.css';
+import './finished-quiz.css';
 
 import Button from '../UI/button';
 
 const FinishedQuiz = ( {quiz, results, onRetry} ) => {
+
   const rightAnswers =
     Object
       .keys(results)
@@ -15,18 +16,16 @@ const FinishedQuiz = ( {quiz, results, onRetry} ) => {
         return total;
       }, 0);
 
-
-
   return (
-    <div className={styles.FinishedQuiz}>
+    <div className='finished-quiz jumbotron'>
       <ul>
         {
           quiz.map((quizItem, i) => {
 
             const iClasses = [
               'fa',
-              results[quizItem.id] === 'wrong' ? 'fa-times' : 'fa-check',
-              styles[results[quizItem.id]]
+              results[quizItem.id] === 'danger' ? 'fa-times' : 'fa-check',
+              `text-${[results[quizItem.id]]}`
             ]
 
             return (
@@ -43,9 +42,9 @@ const FinishedQuiz = ( {quiz, results, onRetry} ) => {
       <p>Правильно {rightAnswers} / {quiz.length}</p>
 
       <div>
-        <Button onClick={onRetry} type="primary"> Retry </Button>
+        <Button onClick={onRetry} type='primary'> Retry </Button>
         <Link to="/">
-          <Button type="right"> Home </Button>
+          <Button type='info'> Home </Button>
         </Link>
       </div>
 

@@ -110,7 +110,7 @@ export function quizAnswer(answerId) {
 
     if (state.answerState) {
       const key = Object.keys(state.answerState)[0]
-      if (state.answerState[key] === 'right') {
+      if (state.answerState[key] === 'success') {
         return
       }
     }
@@ -121,10 +121,10 @@ export function quizAnswer(answerId) {
     if (question.rightAnswerId === answerId) {
 
       if (!results[question.id]) {
-        results[question.id] = 'right'
+        results[question.id] = 'success'
       }
 
-      dispatch(setAnswerState({[answerId]: 'right'}, results))
+      dispatch(setAnswerState({[answerId]: 'success'}, results))
 
       const timeout = window.setTimeout(() => {
         if ( isQuizFinished(state) ) {
@@ -136,9 +136,9 @@ export function quizAnswer(answerId) {
       }, 3000)
 
     } else {
-      results[question.id] = 'wrong'
+      results[question.id] = 'danger'
 
-      dispatch(setAnswerState({[answerId]: 'wrong'}, results))
+      dispatch(setAnswerState({[answerId]: 'danger'}, results))
 
       const timeout = window.setTimeout(() => {
         if ( isQuizFinished(state) ) {

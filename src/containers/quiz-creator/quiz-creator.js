@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './quiz-creator.module.css';
+import './quiz-creator.css';
 
 import Button from "../../components/UI/button";
 import Input from "../../components/UI/input";
@@ -7,6 +7,7 @@ import Select from "../../components/UI/select";
 import {createControl, validate, validateForm} from '../../form/form-validation';
 import {connect} from "react-redux";
 import {createQuizQuestion, finishQuizCreate} from "../../store/actions/create";
+import Notification, { notify } from "../../components/notification";
 
 function createOptionControl(number) {
   return createControl({
@@ -75,7 +76,9 @@ class QuizCreator extends Component {
       rightAnswerId: 1,
       formControls: createFormControls()
     });
-    this.props.finishCreateQuiz()
+    this.props.finishCreateQuiz();
+
+    notify();
   };
 
   onChangeHandler = (value, controlName) => {
@@ -136,18 +139,26 @@ class QuizCreator extends Component {
     />
 
     return (
-      <div className={styles.QuizCreator}>
+      <div className='quiz-creator'>
         <div>
           <h1>Create a Quiz</h1>
 
-          <form onSubmit={this.submitHandler}>
+          <form
+            className='jumbotron'
+            onSubmit={this.submitHandler}>
 
             { this.renderControls() }
 
             {select}
 
+            {
+              <h2 className='text-info'>
+                {`Questions added to the Quiz: ${this.props.quiz.length}`}
+              </h2>
+            }
+
             <Button
-              type="primary"
+              type='info'
               onClick={this.addQuestionHandler}
               disabled={!this.state.isFormValid}
             >
@@ -155,7 +166,7 @@ class QuizCreator extends Component {
             </Button>
 
             <Button
-              type="right"
+              type='success'
               onClick={this.createQuizHandler}
               disabled={this.props.quiz.length === 0}
             >
@@ -163,6 +174,7 @@ class QuizCreator extends Component {
             </Button>
 
           </form>
+          <Notification/>
         </div>
       </div>
     );

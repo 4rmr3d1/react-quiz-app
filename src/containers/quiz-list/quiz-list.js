@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 
-import styles from './quiz-list.module.css';
+import './quiz-list.css';
 import Spinner from "../../components/UI/spinner";
 import {fetchQuizes} from "../../store/actions/quiz";
 
@@ -28,7 +28,7 @@ class QuizList extends Component {
 
   render() {
     return (
-      <div className={styles.QuizList}>
+      <div className='quiz-list'>
 
           <h1>List of Quizes</h1>
 

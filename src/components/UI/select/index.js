@@ -1,14 +1,14 @@
 import React from 'react'
-import styles from './select.module.css'
 
 const Select = ( props ) => {
   const htmlFor = `${props.label}-${Math.random()}`
 
   return (
-    <div className={styles.Select}>
+    <div className='form-group'>
       <label htmlFor={htmlFor}>{props.label}</label>
       <select
         id={htmlFor}
+        className='form-control'
         value={props.value}
         onChange={props.onChange}
       >

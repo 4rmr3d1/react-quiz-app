@@ -1,8 +1,7 @@
 .active-quiz {
   padding: 20px;
   color: #fff;
-  border: 2px solid #fff;
-  border-radius: 5px;
+  border-color: #fff;
   margin: 0 10px;
   box-sizing: border-box;
 }

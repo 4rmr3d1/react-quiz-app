@@ -1,0 +1,34 @@
+.quiz-creator {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  flex-grow: 1;
+  width: 100%;
+  background: #eacda3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.quiz-creator > div {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.quiz-creator h1 {
+  color: #fff;
+  text-align: center;
+}
+
+.quiz-creator form {
+  background: #eee;
+}
+
+.notification {
+  max-width: 20rem;
+  animation: notify 5s ease-in-out;
+
+  z-index: 1000;
+  transition: bottom 0.5s ease;
+}
+

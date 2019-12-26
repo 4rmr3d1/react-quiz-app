@@ -6,7 +6,7 @@ import AnswerItem from './answer-item';
 
 const AnswersList = (props) => {
   return (
-    <ul className="answers-list">
+    <ul className="answers-list list-group">
       { props.answers.map((answer, i) => {
         return (
           <AnswerItem 
